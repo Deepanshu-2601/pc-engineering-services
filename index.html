@@ -362,21 +362,21 @@
                         <h2>Ready to Build Your <span class="text-orange">Dream Team?</span></h2>
                         <p>Let's discuss your project requirements and how our talent can help you reach your goals faster.</p>
                     </div>
-                    <form class="contact-form" onsubmit="event.preventDefault(); alert('In a real app, this would send your request. Thank you for reaching out!');">
-                        <input type="text" placeholder="Your Name" required class="form-input">
-                        <input type="email" placeholder="Business Email" required class="form-input">
-                        <select class="form-input" required>
-                            <option value="" disabled selected>Service Needed</option>
-                            <option value="manpower">Manpower Outsourcing</option>
-                            <option value="technical">Technical Staffing</option>
-                            <option value="solar">Solar Work</option>
-                            <option value="architectural">Architectural Design</option>
-                            <option value="it">IT Staffing</option>
-                            <option value="css">Construction Supervision</option>
-                            <option value="eng">Engineering Services</option>
-                            <option value="exp">Expediting Services</option>
-                            <option value="ins">Inspection Services</option>
-                            <option value="om">Operation & Maintenance</option>
+                    <form id="hire-talent-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+                        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+                            <input type="text" name="first_name" placeholder="First Name" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px;">
+                            <input type="text" name="last_name" placeholder="Last Name" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px;">
+                        </div>
+                        <input type="email" name="email" placeholder="Business Email" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 1rem;">
+                        <input type="tel" name="phone" placeholder="Phone Number" style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 1rem;">
+                        <select name="service_required" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px; margin-bottom: 1rem; background: #fff;">
+                            <option value="">Select Service Needed</option>
+                            <option value="staffing">Technical Staffing</option>
+                            <option value="outsourcing">Manpower Outsourcing</option>
+                            <option value="it">IT Professionals</option>
+                            <option value="arch">Architectural Design</option>
+                            <option value="solar">Solar Energy Solutions</option>
+                            <option value="epc">EPC Support</option>
                             <option value="comm">Pre-Comm & Commissioning</option>
                             <option value="proc">Procurement Assistance</option>
                             <option value="pm">Project Management</option>
@@ -384,6 +384,7 @@
                             <option value="multiple">Multiple Services</option>
                         </select>
                         <button type="submit" class="btn btn-primary btn-block">Request Talent</button>
+                        <p id="form-status" style="margin-top: 1rem; text-align: center; display: none;"></p>
                     </form>
                 </div>
             </div>

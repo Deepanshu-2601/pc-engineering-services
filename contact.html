@@ -128,24 +128,21 @@
                 <!-- Form -->
                 <div class="clean-panel" style="padding: 3.5rem;">
                     <h2 style="margin-bottom: 2.5rem; color: var(--text-dark);">Send Us a Message</h2>
-                    <form onsubmit="event.preventDefault(); alert('Message sent successfully!');" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div class="contact-form-panel fade-in-right">
+                    <form id="main-contact-form" action="https://formspree.io/f/YOUR_ID" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
                         <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div>
-                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">First Name</label>
-                                <input type="text" placeholder="John" class="form-input" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit;" required>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">Full Name</label>
+                                <input type="text" name="name" placeholder="John Doe" class="form-input" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit;" required>
                             </div>
                             <div>
-                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">Last Name</label>
-                                <input type="text" placeholder="Doe" class="form-input" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit;" required>
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">Business Email</label>
+                                <input type="email" name="email" placeholder="john@company.com" class="form-input" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit;" required>
                             </div>
-                        </div>
-                        <div>
-                            <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">Business Email</label>
-                            <input type="email" placeholder="john@company.com" class="form-input" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit;" required>
                         </div>
                         <div>
                             <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">Service Category</label>
-                            <select class="form-input" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit;" required>
+                            <select name="category" class="form-input" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit;" required>
                                 <option value="">Select an option...</option>
                                 <option value="hr">Manpower Outsourcing (HR)</option>
                                 <option value="tech">Technical/IT Staffing</option>
@@ -155,9 +152,10 @@
                         </div>
                         <div>
                             <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">Message</label>
-                            <textarea placeholder="How can we help you?" rows="5" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit; resize: vertical;" required></textarea>
+                            <textarea name="message" placeholder="How can we help you?" rows="5" style="width: 100%; border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; font-family: inherit; resize: vertical;" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary" style="padding: 1.2rem; font-size: 1.1rem; margin-top: 1rem; display: flex; justify-content: center; gap: 0.5rem;"><i class="ti ti-send"></i> Submit Inquiry</button>
+                        <p id="contact-status" style="margin-top: 1rem; text-align: center; display: none;"></p>
                     </form>
                 </div>
             </div>

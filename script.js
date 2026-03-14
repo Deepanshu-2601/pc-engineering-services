@@ -132,9 +132,55 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, statsObserverOptions);
 
-    const statsSection = document.querySelector('.statistics-section');
-    if (statsSection) {
-        statsObserver.observe(statsSection);
-    }
+    // 6. Professional Form Handling (Formspree AJAX)
+    const handleFormSubmit = (formId, statusId) => {
+        const form = document.getElementById(formId);
+        const status = document.getElementById(statusId);
+
+        if (form && status) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const formData = new FormData(form);
+                
+                // Show loading state
+                const submitBtn = form.querySelector('button[type="submit"]');
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<i class="ti ti-loader-2 rotate"></i> Sending...';
+
+                try {
+                    const response = await fetch(form.action, {
+                        method: 'POST',
+                        body: formData,
+                        headers: { 'Accept': 'application/json' }
+                    });
+
+                    if (response.ok) {
+                        status.innerHTML = "✨ <b>Success!</b> Your request has been sent. We will contact you shortly.";
+                        status.style.color = "#059669";
+                        status.style.display = "block";
+                        form.reset();
+                    } else {
+                        throw new Error();
+                    }
+                } catch (error) {
+                    status.innerHTML = "❌ <b>Oops!</b> There was a problem. Please email us directly at contact@pcengineering.com";
+                    status.style.color = "#dc2626";
+                    status.style.display = "block";
+                } finally {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    
+                    // Hide message after 8 seconds
+                    setTimeout(() => {
+                        status.style.display = 'none';
+                    }, 8000);
+                }
+            });
+        }
+    };
+
+    handleFormSubmit('hire-talent-form', 'form-status');
+    handleFormSubmit('main-contact-form', 'contact-status');
 
 });
