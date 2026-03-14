@@ -362,7 +362,10 @@
                         <h2>Ready to Build Your <span class="text-orange">Dream Team?</span></h2>
                         <p>Let's discuss your project requirements and how our talent can help you reach your goals faster.</p>
                     </div>
-                    <form id="hire-talent-form" action="https://formspree.io/f/YOUR_ID" method="POST">
+                    <form id="hire-talent-form" action="https://api.web3forms.com/submit" method="POST">
+                        <input type="hidden" name="access_key" value="YOUR_EMAIL_OR_KEY_HERE">
+                        <input type="hidden" name="subject" value="New Talent Request - PC Engineering">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                         <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
                             <input type="text" name="first_name" placeholder="First Name" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px;">
                             <input type="text" name="last_name" placeholder="Last Name" required style="width: 100%; padding: 0.8rem; border: 1px solid var(--border-color); border-radius: 6px;">

@@ -129,7 +129,10 @@
                 <div class="clean-panel" style="padding: 3.5rem;">
                     <h2 style="margin-bottom: 2.5rem; color: var(--text-dark);">Send Us a Message</h2>
                     <div class="contact-form-panel fade-in-right">
-                    <form id="main-contact-form" action="https://formspree.io/f/YOUR_ID" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <form id="main-contact-form" action="https://api.web3forms.com/submit" method="POST" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                        <input type="hidden" name="access_key" value="YOUR_EMAIL_OR_KEY_HERE">
+                        <input type="hidden" name="subject" value="Contact Inquiry - PC Engineering">
+                        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
                         <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 1.5rem;">
                             <div>
                                 <label style="display: block; margin-bottom: 0.5rem; font-weight: 600; color: var(--text-dark);">Full Name</label>
